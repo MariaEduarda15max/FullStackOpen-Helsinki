@@ -29,13 +29,19 @@ const Part = (props) => {
 const App = () => {
   // const-definitions
   const course = 'Half Stack application development'
-  const part1 = 'Fundamentals of React consists of '
-  const exercises1 = 10
-  const part2 = 'Using props to pass data consists of '
-  const exercises2 = 7
-  const part3 = 'State of a component consists of '
-  const exercises3 = 14
-  const totalExcercises = 'The number of excercises of each part is: '
+  const part1 = {
+    name: 'Fundamentals of React',
+    exercises1 : 10
+  }
+  const part2 = {
+    name: 'Using props to pass data consists of ',
+    exercises2: 7
+  }
+  const part3 = {
+    name: 'State of a component consists of ',
+    exercises3: 14
+}
+  const totalExcercises = 'The total number of excercise that contain the course is: '
   
   return (
     <div>
