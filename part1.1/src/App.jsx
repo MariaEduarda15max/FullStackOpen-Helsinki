@@ -5,13 +5,14 @@ const Header = (props) => {
   )
 }
 
-// content muestra cada parte haciendo referencia a la propiedad name y la propiedad exercises
+// content muestra cada parte haciendo referencia a la propiedad 
+// name y la propiedad exercises
 const Content = (props) => {
   return (
     <div>
-      <Part name={props.part1.name} exercises={props.part1.exercises} />
-      <Part name={props.part2.name} exercises={props.part2.exercises} />
-      <Part name={props.part3.name} exercises={props.part3.exercises} />
+      <Part name={props.parts[0].name} exercises={props.parts[0].exercises} />
+      <Part name={props.parts[1].name} exercises={props.parts[1].exercises} />
+      <Part name={props.parts[2].name} exercises={props.parts[2].exercises} />
     </div>
   )
 }
@@ -19,43 +20,45 @@ const Content = (props) => {
 // muestra la suma total de los ejercicios 
 const Total = (props) => {
   return (
-  <p>Total exercises {props.total} </p> 
+  <p>Total exercises {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises} </p> 
   )
 }
 
-// la constante Part hace referencia a una sola parte del curso que es nombre mas ejercicios 
+// la constante Part hace referencia a una sola parte del curso que
+//  es nombre mas ejercicios, recibe las propiedades name y exercises
+//y luego las imprime
 const Part = (props) => {
   return (
     <p>{props.name} {props.exercises}</p>
-    // recibe name y exercises y luego los imprime
   )
 }
 
 const App = () => {
-  // const-definitions
+  // array de objetos
   const course = 'Half Stack application development'
-  const part1 = {
+  const parts = [
+    {
     name: 'Fundamentals of React',
     exercises: 10
-  }
-  const part2 = {
+    },
+    {
     name: 'Using props to pass data consists of ',
     exercises: 7
-  }
-  const part3 = {
+    },
+    {
     name: 'State of a component consists of ',
     exercises: 14
-}
-  
+    }
+  ]
+  // en esta parte eliminamos el contenido extra de las lineas 54,
+  //  55 y 56 porque ahora solo es necesario hacer referencia a cada 
+  // parte dentro de los corchetes ya que sus propiedades estan dentro
+  //  de cada objeto y no es necesrio llamarlas por separado
   return (
     <div>
       <Header course={course} />
-      <Content 
-      part1 = {part1}
-      part2 = {part2}
-      part3 = {part3}
-      />
-      <Total total = {part1.exercises + part2.exercises + part3.exercises} />
+      <Content parts={parts} />
+      <Total parts = {parts} />
     </div>
   )
 
