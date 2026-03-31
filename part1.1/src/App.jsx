@@ -35,8 +35,9 @@ const Part = (props) => {
 
 const App = () => {
   // array de objetos
-  const course = 'Half Stack application development'
-  const parts = [
+  const course = {
+    name: 'Half Stack application development',
+    parts: [
     {
     name: 'Fundamentals of React',
     exercises: 10
@@ -50,15 +51,16 @@ const App = () => {
     exercises: 14
     }
   ]
+}
   // en esta parte eliminamos el contenido extra de las lineas 54,
   //  55 y 56 porque ahora solo es necesario hacer referencia a cada 
   // parte dentro de los corchetes ya que sus propiedades estan dentro
   //  de cada objeto y no es necesrio llamarlas por separado
   return (
     <div>
-      <Header course={course} />
-      <Content parts={parts} />
-      <Total parts = {parts} />
+      <Header course={course.name} />
+      <Content parts={course.parts} />
+      <Total parts = {course.parts} />
     </div>
   )
 
