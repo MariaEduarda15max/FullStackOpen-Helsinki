@@ -30,16 +30,20 @@ const App = () => {
   return (
     <div>
       <h1>Give Feedback</h1>
+      <fieldset>
       <button onClick = {() => setGood(good + 1)}>Good</button>
       <button onClick={() => setNeutral(neutral + 1)}>Neutral</button>
       <button onClick={() => setBad(bad + 1)}>Bad</button>
+      </fieldset>
       <h1>Statistics</h1>
+      <fieldset>
       <p>Good: {good}</p>
       <p>Neutral: {neutral}</p>
       <p>Bad: {bad}</p>
       <p>All: {all}</p>
       <p>Average: {average}</p>
       <p>Positive: {positive}</p>
+      </fieldset>
     </div>
     )
 }
