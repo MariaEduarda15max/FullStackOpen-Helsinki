@@ -1,6 +1,8 @@
 import { captureOwnerStack } from "react"
 import { useState } from "react"
 
+
+
 const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>
 const History = (props) => {
   if (props.allClicks.length === 0) {
@@ -13,6 +15,19 @@ const History = (props) => {
   return (
     <div>
       button press history: {props.allClicks.join(' ')}
+    </div>
+  )
+}
+
+const Statistics = (props) => {
+  return (
+    <div>
+      <p>Good: {good}</p>
+      <p>Neutral: {neutral}</p>
+      <p>Bad: {bad}</p>
+      <p>All: {all}</p>
+      <p>Average: {average}</p>
+      <p>Positive: {positive} %</p>
     </div>
   )
 }
@@ -37,12 +52,12 @@ const App = () => {
       </fieldset>
       <h1>Statistics</h1>
       <fieldset>
-      <p>Good: {good}</p>
-      <p>Neutral: {neutral}</p>
-      <p>Bad: {bad}</p>
-      <p>All: {all}</p>
-      <p>Average: {average}</p>
-      <p>Positive: {positive}</p>
+      Good = {good}<hr />
+      Neutral = {neutral}<hr />
+      Bad = {bad}<hr />
+      All={all} <hr />
+      Average={average}<hr />
+      Positive={positive}<hr />
       </fieldset>
     </div>
     )
