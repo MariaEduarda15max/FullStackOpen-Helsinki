@@ -20,17 +20,23 @@ const History = (props) => {
 }
 
 const Statistics = (props) => {
+  if (props.all === 0) {
+    return <p>No Feedback given</p>
+  }
+
   return (
     <div>
-      <p>Good: {good}</p>
-      <p>Neutral: {neutral}</p>
-      <p>Bad: {bad}</p>
-      <p>All: {all}</p>
-      <p>Average: {average}</p>
-      <p>Positive: {positive} %</p>
+      <p>Good: {props.good}</p>
+      <p>Neutral: {props.neutral}</p>
+      <p>Bad: {props.bad}</p>
+      <p>All: {props.all}</p>
+      <p>Average: {props.average}</p>
+      <p>Positive: {props.positive} %</p>
     </div>
   )
 }
+
+
 const App = () => {
   // save clicks of each button to its own state
   const [good, setGood] = useState(0)
@@ -52,12 +58,14 @@ const App = () => {
       </fieldset>
       <h1>Statistics</h1>
       <fieldset>
-      Good = {good}<hr />
-      Neutral = {neutral}<hr />
-      Bad = {bad}<hr />
-      All={all} <hr />
-      Average={average}<hr />
-      Positive={positive}<hr />
+      <Statistics 
+  good={good}
+  neutral={neutral}
+  bad={bad}
+  all={all}
+  average={average}
+  positive={positive}
+/>
       </fieldset>
     </div>
     )
